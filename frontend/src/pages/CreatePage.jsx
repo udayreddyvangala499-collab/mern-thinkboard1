@@ -23,7 +23,6 @@ const CreatePage = () => {
 				content
 			});
 
-			api.post("/users")
 			toast.success("Note created successfully!");
 			navigate("/")
 		} catch (error) {

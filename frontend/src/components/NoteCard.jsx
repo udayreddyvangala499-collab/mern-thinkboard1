@@ -1,13 +1,14 @@
 import { PenSquareIcon, Trash2Icon } from 'lucide-react';
 import { formatDate } from "../lib/util.js";
-import {Link} from "react-router";
+import {Link} from "react-router-dom";
 import api from"../lib/axios";
 import toast from "react-hot-toast";
 
 const NoteCard = ({note,setNotes}) => {
 
 	const handleDelete =async (e,id)=> {
-		e.preventDefault();
+		e.preventDefault();	
+    e.stopPropagation();
 		if(!window.confirm("Are you sure you want to delete this note?")) return;
 
 		try {
