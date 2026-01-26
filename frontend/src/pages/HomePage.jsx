@@ -4,9 +4,8 @@ import RateLimitedUI from "../components/RateLimitedUI";
 import { useEffect } from "react";
 import api from "../lib/axios";
 import toast from "react-hot-toast";
-import CreatePage from "./CreatePage";
 import NoteCard from "../components/NoteCard";
-import NotesNotFound from "../components/NotesNotFound";
+import NotesNotFound from "../components/NotesNotFound.jsx";
 const HomePage = () => {
   const [isRateLimited, setIsRateLimited] = useState(false);
   const [notes, setNotes] = useState([]);
@@ -17,8 +16,7 @@ const HomePage = () => {
       try {
         const res = await api.get("/notes");
         console.log(res.data);
-				const data = Array.isArray(res.data) ? res.data : res.data?.notes ?? [];
-        setNotes(data);
+				setNotes(res.data);
         setIsRateLimited(false);
       } catch (error) {
         console.log("Error fetching notes");

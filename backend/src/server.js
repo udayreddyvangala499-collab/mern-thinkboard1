@@ -15,7 +15,7 @@ const PORT =5002;
 
 // middleware
 app.use(cors({
-	origin: "http://localhost:5174"
+	origin: "http://localhost:5173"
 }));
 
 app.use(express.json());
